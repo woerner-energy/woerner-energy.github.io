@@ -69,3 +69,15 @@ document.querySelector(".prev")?.addEventListener("click", () => {
   prevSlide();
   clearInterval(slideInterval);
 });
+
+// Horizontal scrollen per Mausrad für die Leistungs-Karten
+const cardsGrid = document.querySelector('.cards-grid');
+
+if (cardsGrid) {
+  cardsGrid.addEventListener('wheel', (event) => {
+    if (event.deltaY !== 0) {
+      event.preventDefault();
+      cardsGrid.scrollLeft += event.deltaY; // Mausrad -> horizontal scrollen
+    }
+  }, { passive: false });
+}

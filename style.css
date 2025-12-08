@@ -246,17 +246,18 @@ body {
 }
 
 /* CARDS */
+/* CARDS – horizontal scrollen auf allen Geräten */
 .cards-grid {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 0.5rem; /* etwas Platz zur Scrollbar */
-  -webkit-overflow-scrolling: touch; /* für sanftes Scrollen auf iOS */
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch; /* Sanftes Scrollen auf iOS */
 }
 
 .cards-grid::-webkit-scrollbar {
-  height: 8px; /* optional: Scrollbar sichtbarer machen */
+  height: 8px;
 }
 
 .cards-grid::-webkit-scrollbar-thumb {
@@ -270,19 +271,11 @@ body {
   padding: 1.2rem;
   box-shadow: var(--shadow-soft);
   border: 1px solid rgba(0,0,0,0.02);
-  flex: 0 0 260px; /* Breite jeder Karte → frei anpassbar */
-  scroll-snap-align: start;
+  flex: 0 0 260px;          /* Breite jeder Karte */
+  scroll-snap-align: start; /* Einrasten beim Scrollen */
 }
 
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-}
 
-.card p {
-  margin: 0;
-  color: var(--color-muted);
-}
 
 /* ÜBER UNS */
 .section-content {
@@ -522,3 +515,18 @@ body {
     display: block;
   }
 }
+
+@media (min-width: 900px) {
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+    overflow-x: visible;    /* kein horizontales Scrollen mehr */
+  }
+
+  .card {
+    flex: initial;          /* Flex-Eigenschaften zurücksetzen */
+    scroll-snap-align: unset;
+  }
+}
+
