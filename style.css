@@ -358,7 +358,7 @@ body {
 
 /* Bildgröße im Abschnitt „Gewerbespeicher“ begrenzen */
 #gewerbespeicher .gallery-item img {
-  /* max-width: 800px;      /* maximale Breite → nach Wunsch anpassen */
+  max-width: 800px;      /* maximale Breite → nach Wunsch anpassen */
   width: 100%;           /* skaliert innerhalb des Rahmens */
   height: auto;          /* hält das Seitenverhältnis */
   object-fit: contain;   /* nichts wird abgeschnitten */
@@ -540,20 +540,5 @@ body {
   }
   .nav-toggle {
     display: block;
-  }
-}
-
-/* Desktop: Karten als klassisches Grid statt horizontalem Scrollen */
-@media (min-width: 900px) {
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 1rem;
-    overflow-x: visible;    /* kein horizontales Scrollen mehr */
-  }
-
-  .card {
-    flex: initial;          /* Flex-Eigenschaften zurücksetzen */
-    scroll-snap-align: unset;
   }
 }
