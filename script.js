@@ -35,3 +35,37 @@ navToggle.addEventListener('click', () => {
   nav.classList.toggle('open');
 });
 
+/* -------------------------
+   HERO SLIDER
+------------------------- */
+const slides = document.querySelectorAll(".slider img");
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Auto-Slide alle 5 Sekunden
+let slideInterval = setInterval(nextSlide, 5000);
+
+// Buttons
+document.querySelector(".next")?.addEventListener("click", () => {
+  nextSlide();
+  clearInterval(slideInterval);
+});
+
+document.querySelector(".prev")?.addEventListener("click", () => {
+  prevSlide();
+  clearInterval(slideInterval);
+});
