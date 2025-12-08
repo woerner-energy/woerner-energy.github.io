@@ -305,6 +305,11 @@ body {
   gap: 2rem;
 }
 
+/* Gewerbespeicher-Abschnitt NICHT als 2-Spalten-Grid, sondern vollbreit */
+#gewerbespeicher.section-alt {
+  display: block;
+}
+
 .info-box {
   background: #ffffff;
   padding: 1.4rem;
