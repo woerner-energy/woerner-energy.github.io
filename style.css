@@ -75,7 +75,7 @@ body {
   font-weight: 500;
   font-size: 1.4rem;
   margin-top: -4px;  /* SUPER-WIRKSAM: reduziert Abstand feinsteuerbar */
-  margin-left: 0.5rem;
+  margin-left: 0.3rem;
 }
 /* NAVIGATION */
 .nav {
@@ -427,20 +427,22 @@ body {
 .slider {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 260px; /* gewünschte Höhe → kannst du anpassen */
+  border-radius: var(--radius-lg);
+  overflow: hidden; /* wichtig für saubere Kanten */
 }
 
 .slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* sorgt für perfekte, gleichmäßige Skalierung */
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: auto;
   opacity: 0;
   transition: opacity 1s ease;
-  border-radius: var(--radius-lg);
-  object-fit: cover;
 }
+
 
 .slider img.active {
   opacity: 1;
