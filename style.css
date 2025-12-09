@@ -512,6 +512,13 @@ body {
   background: rgba(255,255,255,0.9);
 }
 
+.team-member img {
+  max-width: 200px;   /* oder jede gewünschte Größe */
+  height: auto;
+  border-radius: 8px; /* optional */
+}
+
+
 /* RESPONSIVE */
 @media (max-width: 800px) {
   .hero {
