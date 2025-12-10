@@ -341,22 +341,24 @@ body {
   align-items: flex-start;
 }
 
-/* Nur für den Abschnitt "Über uns": oberer Teil als Grid, darunter Team vollbreit */
+/* Über-uns-Abschnitt nutzt das 2-Spalten-Grid von .section-alt */
 #ueber-uns.section-alt {
-  display: block; /* Standard-Grid von .section-alt aufbrechen */
+  /* keine extra display-Regel nötig, erbt von .section-alt */
 }
 
+/* Oberer Bereich (Text links, Info-Box rechts) – Kinder direkt im Grid */
 #ueber-uns .section-main {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-column: 1 / -1;   /* erstreckt sich über beide Spalten */
+  display: contents;     /* sorgt dafür, dass section-content und section-side
+                            direkt im Eltern-Grid platziert werden */
 }
 
-/* Team-Bereich über komplette Breite */
+/* Team-Bereich unter dem 2-Spalten-Block, vollbreit */
 #ueber-uns .team {
-  margin-top: 1rem;
+  grid-column: 1 / -1;
+  margin-top: 1.5rem;
 }
+
 
 /* Team-Grid: zwei Karten nebeneinander auf Desktop */
 .team-grid {
@@ -435,7 +437,7 @@ body {
 /* Responsive: auf Mobil einspaltig */
 @media (max-width: 800px) {
   #ueber-uns .section-main {
-    grid-template-columns: 1fr;
+    display: block;
   }
 
   .team-grid {
@@ -654,13 +656,6 @@ body {
   width: 100%;
 }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.25rem;
-  align-items: flex-start;
-}
 
 .team-member {
   background: #ffffff;
