@@ -161,6 +161,11 @@ body {
   grid-column: 1 / -1;
 }
 
+.hero-content {
+  grid-column: 1 / -1;  /* Textteil über gesamte Breite */
+}
+
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -168,6 +173,7 @@ body {
 }
 
 .hero-image {
+  grid-column: 2 / 3;    /* Bild-Spalte rechts */
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -545,6 +551,13 @@ body {
 @media (max-width: 800px) {
   .hero {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .hero-content,
+  .hero-image {
+    grid-column: 1 / -1; /* beide Blöcke untereinander */
+  }
+    .hero-image {
+    margin-top: 1.5rem;
   }
 
   .section-alt {
