@@ -739,14 +739,15 @@ body {
 /* RESPONSIVE */
 @media (max-width: 800px) {
   .hero {
-    grid-template-columns: minmax(0, 1fr);
+    display: block;         /* statt Grid → normale Dokument-Reihenfolge */
+    padding: 2rem 1.2rem;
   }
-  .hero-content,
+  .hero-content {
+    margin-bottom: 1.5rem;  /* Abstand zu den Buttons/Slider */
+  }
   .hero-image {
-    grid-column: 1 / -1; /* beide Blöcke untereinander */
-  }
-    .hero-image {
-    margin-top: 1.5rem;
+    margin-top: 1.5rem;     /* Slider schön unter Text & Buttons */
+    max-height: 320px;  
   }
 
   .section-alt {
