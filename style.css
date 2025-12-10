@@ -739,25 +739,34 @@ body {
 /* RESPONSIVE */
 @media (max-width: 800px) {
   .hero {
-    display: flex;              /* statt grid/block */
+    display: flex;              /* keine Grid-Spalten mehr */
     flex-direction: column;     /* alles untereinander */
     padding: 2rem 1.2rem;
   }
 
   .hero h1 {
-    order: 0;                   /* Überschrift zuerst */
+    margin-bottom: 1rem;
   }
 
   .hero-content {
-    order: 1;                   /* Text + Buttons */
-    margin-bottom: 1.5rem;
+    order: 1;                   /* Text + Buttons zuerst */
+  }
+
+  .hero-actions {
+    margin-top: 1rem;
   }
 
   .hero-image {
-    order: 2;                   /* Slider immer darunter */
+    order: 2;                   /* Slider immer UNTER dem Text */
     margin-top: 1.5rem;
-    max-height: 320px;
+    margin-bottom: 0;
+    max-height: none;
   }
+
+  .slider {
+    height: 260px;              /* etwas kleiner mobil */
+  } 
+
   .section-alt {
     grid-template-columns: minmax(0, 1fr);
   }
