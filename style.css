@@ -152,11 +152,13 @@ body {
 .hero h1 {
   font-size: clamp(2rem, 3vw + 1rem, 2.7rem);
   margin: 0 0 1rem;
+  grid-column: 1 / -1;
 }
 
 .hero p {
   margin: 0 0 1.5rem;
   color: var(--color-muted);
+  grid-column: 1 / -1;
 }
 
 .hero-actions {
@@ -170,7 +172,7 @@ body {
   justify-content: center;
   align-items: flex-end;
   max-height: 360px; /* oder jede gewünschte Höhe */
-  margin-bottom: 40px;
+  margin-bottom: 55px; /*Vorher 40 */
   height: 100%;
   object-fit: contain;
 
