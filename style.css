@@ -170,7 +170,6 @@ body {
 .hero p {
   margin: 0 0 1.5rem;
   color: var(--color-muted);
-  grid-column: 1 / -1;
 }
 
 .hero-actions {
@@ -547,11 +546,92 @@ body {
   background: rgba(255,255,255,0.9);
 }
 
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  align-items: flex-start;
+}
+
+.team-member {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 1.4rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0,0,0,0.03);
+  font-size: 0.95rem;
+}
+
+.team-member h4 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+
 .team-member img {
   max-width: 450px;   /* oder jede gewünschte Größe */
   height: auto;
   border-radius: 8px; /* optional */
 }
+
+.team-bio {
+  max-height: 8.5rem;         /* sichtbarer Ausschnitt im geschlossenen Zustand */
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease;
+}
+
+/* leichter Fade-Effekt am unteren Rand, wenn abgeschnitten */
+.team-bio::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), #ffffff);
+}
+
+/* ausgeklappt */
+.team-member.expanded .team-bio {
+  max-height: 1000px;     /* groß genug, damit der ganze Text reinpasst */
+}
+
+.team-member.expanded .team-bio::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.team-toggle {
+  margin-top: 0.6rem;
+  background: none;
+  border: none;
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.team-toggle:hover {
+  text-decoration: underline;
+}
+
+.team-note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* mobil: übereinander statt nebeneinander */
+@media (max-width: 800px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 /* RESPONSIVE */
