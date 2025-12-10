@@ -137,7 +137,7 @@ body {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
   gap: 2rem;
-  /*align-items: center; */
+  align-items: flex-end; 
   box-shadow: var(--shadow-soft);
   opacity: 0;
   transform: translateY(24px);
