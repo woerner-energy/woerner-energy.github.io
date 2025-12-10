@@ -341,6 +341,109 @@ body {
   align-items: flex-start;
 }
 
+/* Nur für den Abschnitt "Über uns": oberer Teil als Grid, darunter Team vollbreit */
+#ueber-uns.section-alt {
+  display: block; /* Standard-Grid von .section-alt aufbrechen */
+}
+
+#ueber-uns .section-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Team-Bereich über komplette Breite */
+#ueber-uns .team {
+  margin-top: 1rem;
+}
+
+/* Team-Grid: zwei Karten nebeneinander auf Desktop */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  align-items: flex-start;
+}
+
+.team-member {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 1.4rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0,0,0,0.03);
+  font-size: 0.95rem;
+}
+
+.team-member h4 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+/* Ausklappbarer Text */
+.team-bio {
+  max-height: 8.5rem;       /* sichtbarer Bereich im geschlossenen Zustand */
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease;
+}
+
+/* leichter Fade am unteren Rand */
+.team-bio::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), #ffffff);
+}
+
+/* ausgeklappt */
+.team-member.expanded .team-bio {
+  max-height: 1000px;
+}
+
+.team-member.expanded .team-bio::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Toggle-Button */
+.team-toggle {
+  margin-top: 0.6rem;
+  background: none;
+  border: none;
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.team-toggle:hover {
+  text-decoration: underline;
+}
+
+.team-note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Responsive: auf Mobil einspaltig */
+@media (max-width: 800px) {
+  #ueber-uns .section-main {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* Überschrift über beide Spalten */
 #gewerbespeicher .section-header {
   grid-column: 1 / -1;
